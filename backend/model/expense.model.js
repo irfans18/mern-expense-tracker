@@ -23,7 +23,7 @@ const expenseSchema = new mongoose.Schema({
   },
   updated_at: {
     type: Date,
-    default: Date.now,
+    default: null,
   },
 });
 

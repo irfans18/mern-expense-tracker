@@ -1,9 +1,9 @@
 import express from "express";
 import {Expense} from "../model/expense.model.js"
-
 const router = express.Router();
+// const swaggerAutogen = require("swagger-autogen")();
 
-router.get("/", async (req, res) => {
+router.get("/api/expenses/", async (req, res) => {
 	try {
 		const expenses = await Expense.find({});
 		res.json(expenses);
@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
 	}
 });
 
-router.post("/", async (req, res) => {
+router.post("/api/expenses/", async (req, res) => {
 	const expense = new Expense({
 		amount: req.body.amount,
 		category: req.body.category,
@@ -26,8 +26,7 @@ router.post("/", async (req, res) => {
 		res.json({ message: err });
 	}
 });
-
-router.get("/:expenseId", async (req, res) => {
+router.get("/api/expenses/:expenseId", async (req, res) => {
 	try {
 		const expense = await Expense.findById(req.params.expenseId);
 		res.json(expense);
@@ -36,7 +35,7 @@ router.get("/:expenseId", async (req, res) => {
 	}
 });
 
-router.delete("/:expenseId", async (req, res) => {
+router.delete("/api/expenses/:expenseId", async (req, res) => {
 	try {
 		const removedExpense = await Expense.deleteOne({
 			_id: req.params.expenseId,
@@ -47,17 +46,23 @@ router.delete("/:expenseId", async (req, res) => {
 	}
 });
 
-router.put("/:expenseId", async (req, res) => {
-	try {
-		const updatedExpense = await Expense.findByIdAndUpdate(
-			req.params.expenseId,
-			req.body,
-			{ new: true }
-		);
-		res.json(updatedExpense);
-	} catch (err) {
-		res.json({ message: err });
-	}
+router.put("/api/expenses/:expenseId", async (req, res) => {
+   try {
+      const updatedExpense = await Expense.findByIdAndUpdate(
+         req.params.expenseId,
+         {
+            amount: req.body.amount,
+            category: req.body.category,
+            title: req.body.title,
+            description: req.body.description,
+            updated_at: Date.now(),
+         },
+         {new: true}
+      );
+      res.json(updatedExpense);
+   } catch (err) {
+      res.json({ message: err });
+   }
 });
 
 export default router;

@@ -1,0 +1,193 @@
+{
+	"swagger": "2.0",
+	"host": "localhost:3000",
+	"basePath": "/",
+	"schemes": ["http"],
+	"info": {
+		"title": "Expense Tracker API",
+		"description": "API endpoints for a expense tracker services documented on swagger",
+		"contact": {
+			"name": "Irfan Shiddiq",
+			"email": "irfams99@gmail.com",
+			"url": "https://github.com/irfans18/mern-expense-tracker"
+		},
+		"version": "1.0.0"
+	},
+	"servers": [
+		{
+			"url": "http://localhost:8080/",
+			"description": "Local server"
+		}
+	],
+	"paths": {
+		"/api/expenses/": {
+			"get": {
+				"description": "",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			},
+			"post": {
+				"description": "",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"amount": {
+									"example": "any"
+								},
+								"category": {
+									"example": "any"
+								},
+								"title": {
+									"example": "any"
+								},
+								"description": {
+									"example": "any"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/expenses/{expenseId}": {
+			"get": {
+				"description": "",
+				"parameters": [
+					{
+						"name": "expenseId",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			},
+			"delete": {
+				"description": "",
+				"parameters": [
+					{
+						"name": "expenseId",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			},
+			"put": {
+				"description": "",
+				"parameters": [
+					{
+						"name": "expenseId",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"amount": {
+									"example": "any"
+								},
+								"category": {
+									"example": "any"
+								},
+								"title": {
+									"example": "any"
+								},
+								"description": {
+									"example": "any"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"openapi": {
+			"type": "string",
+			"example": "3.0.0"
+		},
+		"info": {
+			"type": "object",
+			"properties": {
+				"title": {
+					"type": "string",
+					"example": "Mini Blog API"
+				},
+				"description": {
+					"type": "string",
+					"example": "API endpoints for a mini blog services documented on swagger"
+				},
+				"contact": {
+					"type": "object",
+					"properties": {
+						"name": {
+							"type": "string",
+							"example": "Irfan Shiddiq"
+						},
+						"email": {
+							"type": "string",
+							"example": "irfams99@gmail.com"
+						},
+						"url": {
+							"type": "string",
+							"example": "https://github.com/irfans18/mern-expense-tracker"
+						}
+					}
+				},
+				"version": {
+					"type": "string",
+					"example": "1.0.0"
+				}
+			}
+		},
+		"servers": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"url": {
+						"type": "string",
+						"example": "http://localhost:8080/"
+					},
+					"description": {
+						"type": "string",
+						"example": "Local server"
+					}
+				}
+			}
+		}
+	},
+	"apis": ["./routes/*.js"]
+}
