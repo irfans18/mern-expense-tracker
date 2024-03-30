@@ -31,10 +31,18 @@ const CreateOrUpdate = () => {
         //     description
         // }
 
-        console.log(isEdit, expense);
         if (isEdit) {
+            console.log(isEdit, expense);
+            console.log(`${FETCH_EXPENSE_API}/${expense._id}`);
             axios
-                .put(`${FETCH_EXPENSE_API}/${expense.id}`, expense)
+
+                .put(`${FETCH_EXPENSE_API}/${expense._id}`, 
+                {
+                    amount: +expense.amount,
+                    category: expense.category,
+                    title: expense.title,
+                    description: expense.description,
+                 })
                 // eslint-disable-next-line no-unused-vars
                 .then((response) => {
                     setLoading(false)
