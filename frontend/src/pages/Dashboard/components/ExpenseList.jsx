@@ -2,8 +2,9 @@
 import {useEffect, useState} from "react"
 import axios from 'axios';
 import {IconBookmark, IconCircle, IconPlus, IconShoppingCart} from "@tabler/icons-react";
-import {FETCH_EXPENSE_API} from "@/Constant/routes.js";
+import {FETCH_EXPENSE_API} from "@/Constant/api.js";
 import ExpenseItem from "@pages/Dashboard/components/ExpenseItem.jsx";
+import {Link} from "react-router-dom";
 
 const ExpenseList = () => {
     const [expenses, setExpenses] = useState([])
@@ -28,21 +29,18 @@ const ExpenseList = () => {
                 <div className="d-flex justify-content-between">
                     <h2 className="my-2">Expense Tracker</h2>
                     <div className="d-flex justify-content-end column-gap-2">
-                        <p className="text-end my-2">
-
-                            <span className="badge text-bg-primary rounded-pill"><IconPlus/></span>
-                        </p>
+                        <Link to="/new" state={{ isEdit: false }}>
+                            <p className="text-end my-2">
+                                <span className="badge text-bg-primary rounded-pill"><IconPlus/></span>
+                            </p>
+                        </Link>
                     </div>
                 </div>
                 <div className="row row-cols-lg-4 row-cols-1 g-4 pt-2">
                     {loading ? <IconCircle/> : expenses.map((exp, index) =>
                         (<div key={index} className="col">
                             <ExpenseItem
-                                amount={exp.amount}
-                                category={exp.category}
-                                title={exp.title}
-                                description={exp.description}
-                                date={exp.created_at}
+                                expense={exp}
                             />
                         </div>)
                     )}

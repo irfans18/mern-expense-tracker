@@ -8,9 +8,9 @@ const options = {
 	definition: {
 		openapi: "3.0.0",
 		info: {
-			title: "Mini Blog API",
+			title: "Expense Tracker API",
 			description:
-				"API endpoints for a mini blog services documented on swagger",
+				"API endpoints for a Expense Tracker services documented on swagger",
 			contact: {
 				name: "Irfan Shiddiq",
 				email: "irfams99@gmail.com",
@@ -30,14 +30,3 @@ const options = {
 };
 
 swaggerAutogen(outputFile, endpointsFiles, options);
-// const swaggerSpec = swaggerJsdoc(options);
-// function swaggerDocs(app, port) {
-// 	// Swagger Page
-// 	app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-// 	// Documentation in JSON format
-// 	app.get("/docs.json", (req, res) => {
-// 		res.setHeader("Content-Type", "application/json");
-// 		res.send(swaggerSpec);
-// 	});
-// }
-// export default swaggerDocs;
