@@ -3,7 +3,7 @@ import { IconEdit,IconArrowBack  } from "@tabler/icons-react";
 import { useState } from 'react';
 import { useSnackbar } from 'notistack';
 import axios from 'axios';
-import { FETCH_EXPENSE_API } from '../../Constant/api';
+import { FETCH_EXPENSE_API } from '../../Constant/api.constant.js';
 import { useNavigate } from 'react-router-dom';
 import { IconCircle } from '@tabler/icons-react';
 import { useLocation } from 'react-router-dom';

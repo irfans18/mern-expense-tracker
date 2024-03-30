@@ -4,7 +4,7 @@ import axios from "axios";
 import PropTypes from 'prop-types';
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FETCH_EXPENSE_API } from "../../../Constant/api";
+import { FETCH_EXPENSE_API } from "../../../Constant/api.constant.js";
 import ConfirmationDialog from "./ConfirmationDialog";
 
 

@@ -2,7 +2,7 @@
 import {useEffect, useState} from "react"
 import axios from 'axios';
 import {IconBookmark, IconCircle, IconPlus, IconShoppingCart} from "@tabler/icons-react";
-import {FETCH_EXPENSE_API} from "@/Constant/api.js";
+import {FETCH_EXPENSE_API} from "@/Constant/api.constant.js";
 import ExpenseItem from "@pages/Dashboard/components/ExpenseItem.jsx";
 import {Link} from "react-router-dom";
 
